@@ -7,8 +7,8 @@ public class App {
 
         String exitCommand = "";
 
-        Calculator circleCal = new CircleCalculator();
-        Calculator arithCal = new ArithmeticCalculator();
+        CircleCalculator circleCal = new CircleCalculator();
+        ArithmeticCalculator arithCal = new ArithmeticCalculator();
 
         double result;
 
