@@ -1,3 +1,6 @@
+/**
+ * 나머지 연산을 수행합니다.
+ */
 public class ModOperator implements Operator{
 
     @Override

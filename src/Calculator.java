@@ -1,33 +1,74 @@
+import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 계산기 클래스
+ */
 public abstract class Calculator {
-    private List<Double> resultArr;
+    /**
+     * 연산 결과가 저장되는 결과값 리스트
+     */
+    private final List<Double> resultList;
 
+    /**
+     * 연산 결과가 담깁니다.
+     */
     double result;
 
-    public Calculator(List<Double> resultArr) {
-        this.resultArr =  resultArr;
+    /**
+     * 계산기 생성 시 결과값 리스트를 초기화합니다.
+     */
+    public Calculator() {
+        this.resultList =  new ArrayList<>();
     }
 
-    // 계산기는 반드시 계산 기능이 필요하므로 calculate 메소드를 추상메소드로 지정하긴 했는데 사칙연산 계산기와 원의 넓이 계산기가 필요로 하는 매개변수가 달라 메소드 오버로딩을 해줬다. 그런데 이렇게 되면 각 계산기에서 필요로 하지 않는 계산 메소드를 오버라이딩해줘야 한다...  만약 또다른 매개변수를 받는 계산기가 추가되었다면..?
+    /**
+     * 피연산자 1개가 필요한 계산을 진행합니다.
+     * @param number 피연산자
+     * @return
+     */
     public abstract double calculate (int number);
-    public abstract double calculate (int firstNum, int secondNum, char operator) throws Exception;
 
-    public List<Double> getResultArr () {
-        return this.resultArr;
+    /**
+     * 피연산자 2개와 연산자 1개가 필요한 계산을 진행합니다.
+     * @param firstNum
+     * @param secondNum
+     * @param operator
+     * @return
+     * @throws NumberException
+     * @throws OperationException
+     */
+    public abstract double calculate (int firstNum, int secondNum, char operator) throws NumberException, OperationException;
+
+    /**
+     * 결과값 리스트를 반환합니다.
+     * @return
+     */
+    public List<Double> getResultList () {
+        return this.resultList;
     }
 
-    public void setResultArr(double result) {
-            this.resultArr.add(result);
+    /**
+     * 결과값 리스트에 연산 결과를 추가합니다.
+     * @param result
+     */
+    public void setResultList(double result) {
+            this.resultList.add(result);
     }
 
+    /**
+     * 결과값 리스트의 첫 번째 연산 결과를 삭제합니다.
+     */
     public void removeResult() {
-        getResultArr().remove(0);
+        getResultList().remove(0);
     }
 
+    /**
+     * 결과값 리스트의 모든 값을 출력합니다.
+     */
     public void inquiryResults() {
-        System.out.println("[ 총 결과값 개수 : " + getResultArr().size() + " ]");
-        for (Double i : this.resultArr) {
+        System.out.println("[ 총 결과값 개수 : " + this.resultList.size() + " ]");
+        for (Double i : this.resultList) {
             System.out.println(i);
         }
     }

@@ -1,3 +1,6 @@
+/**
+ * 나누기 연산을 수행합니다.
+ */
 public class DivideOperator implements Operator{
 
     public int operate(int firstNum, int secondNum) throws NumberException {
