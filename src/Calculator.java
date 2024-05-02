@@ -60,7 +60,7 @@ public abstract class Calculator {
      * 결과값 리스트의 첫 번째 연산 결과를 삭제합니다.
      */
     public void removeResult() {
-        getResultList().remove(0);
+        this.resultList.remove(0);
     }
 
     /**

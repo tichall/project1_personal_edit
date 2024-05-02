@@ -83,7 +83,6 @@ public class App {
                     try {
                         result = arithCal.calculate(firstNum, secondNum, operator);
                     } catch (Exception e) {
-                        // calculate에서 발생하는 예외의 종류가 여러가지이므로 특정 exception명이 아닌 Exception 사용
                         System.out.println(e.getMessage());
                         break;
                     }
